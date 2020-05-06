@@ -3,21 +3,16 @@
  *
  */
 public class Playground {
-
-	public static Double calculate(final double numberOne, final String operation, final double numberTwo) 
-	{
-	    Double Result = null;
-	    
-	    if (operation == "+") Result = numberOne + numberTwo;
-	    else if (operation == "-") Result = numberOne - numberTwo;
-	    else if (operation == "*") Result = numberOne * numberTwo;
-	    else if (operation == "/") {
-	    	if (numberTwo != 0) Result = numberOne / numberTwo;
-	    }
-		return Result;		
-	}
+	public int solution(int number) {
+		int sum = 0;
+		for (int i = 0; i<number; i+=3) sum+=i;
+		for (int i = 0; i<number; i+=5) {
+			if (i%15 == 0)continue;
+			else sum+=i;
+		}
+	    return sum;
+		}
 	public static void main(String[] args) {
-
 	}
 
 }
