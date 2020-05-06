@@ -3,36 +3,19 @@
  *
  */
 public class Playground {
-	public static String Tickets(int[] peopleInLine)
-	{
-		int d25 = 0, d50 = 0;
-		for(int i=0;i<peopleInLine.length;i++) {
-			switch (peopleInLine[i]) {
-			case 25:
-				d25++;
-				continue;
-			case 50:
-				if(d25>0) {
-					d25--;
-					d50++;
-					continue;
+	public static String printerError(String s) {
+		int errors = 0;
+		String allErr = "nopqrstuvwxyz";
+		for (int i=0;i<s.length();i++) {
+			for (int j=0;j<allErr.length();j++) {
+				if (s.charAt(i)==allErr.charAt(j)) {
+					errors++;
+					break;
 				}
-				else return "NO";
-			case 100:
-				if(d25>0&&d50>0) {
-					d25--;
-					d50--;
-					continue;
-				}
-				else if(d25>2) {
-					d25-=3;
-					continue;
-				}
-				else return "NO";
-			  }	  
-		  }
-		  return "YES";
-	  }
+			}
+		}
+		return s.format("%d/%d",errors,s.length());
+	}
 	public static void main(String[] args) {
 		System.out.print(Playground.Tickets(new int[] {25, 25, 50}));
 	}
