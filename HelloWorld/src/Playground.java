@@ -3,21 +3,38 @@
  *
  */
 public class Playground {
-	static String encode(String word){
-		word = word.toLowerCase();
-		char[] arr = new char[word.length()];
-		for (int i=0;i<word.length();i++) {
-			int count=0;
-			for (int j=0;j<word.length();j++) {
-				if(word.charAt(i)==word.charAt(j))count++;
-			}
-			if (count>=2)arr[i]=')';
-			else arr[i]='(';
-		}
-		return word.copyValueOf(arr);
-	}
+	public static String Tickets(int[] peopleInLine)
+	{
+		int d25 = 0, d50 = 0;
+		for(int i=0;i<peopleInLine.length;i++) {
+			switch (peopleInLine[i]) {
+			case 25:
+				d25++;
+				continue;
+			case 50:
+				if(d25>0) {
+					d25--;
+					d50++;
+					continue;
+				}
+				else return "NO";
+			case 100:
+				if(d25>0&&d50>0) {
+					d25--;
+					d50--;
+					continue;
+				}
+				else if(d25>2) {
+					d25-=3;
+					continue;
+				}
+				else return "NO";
+			  }	  
+		  }
+		  return "YES";
+	  }
 	public static void main(String[] args) {
-		System.out.print(Playground.encode("Prespecialized"));
+		System.out.print(Playground.Tickets(new int[] {25, 25, 50}));
 	}
 
 }
