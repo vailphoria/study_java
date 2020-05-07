@@ -2,22 +2,23 @@
  * @author Valeri
  *
  */
+import java.util.*;
+
 public class Playground {
-	public static String printerError(String s) {
-		int errors = 0;
-		String allErr = "nopqrstuvwxyz";
-		for (int i=0;i<s.length();i++) {
-			for (int j=0;j<allErr.length();j++) {
-				if (s.charAt(i)==allErr.charAt(j)) {
-					errors++;
-					break;
-				}
-			}
-		}
-		return s.format("%d/%d",errors,s.length());
-	}
 	public static void main(String[] args) {
-		System.out.print(Playground.Tickets(new int[] {25, 25, 50}));
+		int value = 5689;
+		String RomNum = "";
+		int[] num = new int[] {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] letter = new String[] {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+        //Map< String,  Integer>  map =  new HashMap<String,  Integer>();
+        //for ( int i= 0;  i <  num.length;  i++) map.put( letter[ i],  num[ i]);  // insert key/value into map
+        for (int i=0; i<num.length; i++) {
+        	while(value>=num[i]) {
+        		value -= num[i];
+        		RomNum += letter[i];
+        	}
+        }
+		System.out.print(RomNum);
 	}
 
 }
