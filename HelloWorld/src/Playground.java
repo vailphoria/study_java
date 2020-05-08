@@ -1,24 +1,23 @@
-/**
- * @author Valeri
- *
- */
-import java.util.*;
+import java.io.*;
 
 public class Playground {
 	public static void main(String[] args) {
-		int value = 5689;
-		String RomNum = "";
-		int[] num = new int[] {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-        String[] letter = new String[] {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-        //Map< String,  Integer>  map =  new HashMap<String,  Integer>();
-        //for ( int i= 0;  i <  num.length;  i++) map.put( letter[ i],  num[ i]);  // insert key/value into map
-        for (int i=0; i<num.length; i++) {
-        	while(value>=num[i]) {
-        		value -= num[i];
-        		RomNum += letter[i];
-        	}
+        
+		try(FileWriter writer = new FileWriter("notes3.txt", true))
+        {
+           // запись всей строки
+            String text = "Hello Gold!";
+            writer.write(text);
+            // запись по символам
+            writer.append('\n');
+            writer.append('E');
+             
+            writer.flush();
         }
-		System.out.print(RomNum);
-	}
+        catch(IOException ex){
+             
+            System.out.println(ex.getMessage());
+        } 
+    } 
 
 }
