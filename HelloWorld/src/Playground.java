@@ -1,25 +1,18 @@
 import java.io.*;
 
 public class Playground {
+	public static String createPhoneNumber(int[] numbers) {
+		String number = "(";
+		for (int i=0; i<10; i++){
+			if (i==3)number+=") ";
+			if (i==6)number+="-";
+			number+=numbers[i];
+		}
+		return number;
+	}
+	
 	public static void main(String[] args) {
-        String text ="";
-        int words = 0;
-		try(FileReader reader = new FileReader("notes3.txt"))
-        {
-            int c;
-            while((c=reader.read())!=-1){
-                 
-                text += (char)c;
-            }
-            String[] subStr;
-            subStr = text.split(" ");
-            System.out.println(subStr.length);
-
-        }
-        catch(IOException ex){
-             
-            System.out.println(ex.getMessage());
-        } 
+		 System.out.print(Playground.createPhoneNumber(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0}));
     } 
 
 }
